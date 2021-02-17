@@ -14,8 +14,8 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextInputEditText edt1,edt2;
-    Button button;
+    private TextInputEditText edt1,edt2;
+    private Button vbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,34 +24,57 @@ public class LoginActivity extends AppCompatActivity {
 
         edt1 = findViewById(R.id.username);
         edt2 = findViewById(R.id.password);
-        button = findViewById(R.id.btn_Login);
+        vbutton = findViewById(R.id.btn_Login);
+        
 
-        button.setOnClickListener(new View.OnClickListener() {
+        vbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edt1.getText().toString().equals("Admin") &&
-                        edt2.getText().toString().equals("123456789")){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(
-                            LoginActivity.this
-                    );
-                    builder.setIcon(R.drawable.ic_check);
-                    builder.setTitle("Login Successful!!!");
-                    builder.setMessage("Welcome to Smart News Mobile App...");
 
-                    startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+                if(edt1.getText().toString().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "Input  Username !!! ",Toast.LENGTH_SHORT).show();
+                }
+                else if(edt2.getText().toString().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "Input Password !!!",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    if (edt1.getText().toString().equals("Admin") &&
+                            edt2.getText().toString().equals("8080")){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(
+                                LoginActivity.this
+                        );
+                        builder.setIcon(R.drawable.ic_check);
+                        builder.setTitle("Login Successful!!!");
+                        builder.setMessage("Welcome to Smart News Mobile App...");
 
 
 
-                    builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }else {
-                    Toast.makeText(getApplicationContext(), "Invalid username $ Password",Toast.LENGTH_SHORT).show();
+
+                        builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                                startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+
+
+
+                            }
+                        });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+                    if (! edt1.getText().toString().equals("Admin")) {
+                        Toast.makeText(getApplicationContext(), "Invalid  Username !!! ",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(! edt2.getText().toString().equals("8080")) {
+                        Toast.makeText(getApplicationContext(), "Invalid Password !!!",Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
                 }
             }
         });

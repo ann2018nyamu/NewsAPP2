@@ -9,20 +9,8 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     @GET("top-headlines")
-    Call<News> getNews(
+    Call<News> getNews();
 
-            @Query("country") String country ,
-            @Query("apiKey") String apiKey
-
-    );
-
-    @GET("everything?domains=wsj.com&apiKey=f50debf4b09d4b76856df1fd93105f56")
-    Call<News> getNewsSearch(
-
-            @Query("q") String keyword,
-            @Query("language") String language,
-            @Query("sortBy") String sortBy,
-            @Query("apiKey") String apiKey
-
-    );
+    @GET("everything?q=apple&from=2021-01-25&to=2021-01-25&sortBy=popularity&apiKey=f50debf4b09d4b76856df1fd93105f56")
+    Call<News> getNewsSearch();
 }

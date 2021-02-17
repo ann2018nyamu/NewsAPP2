@@ -33,4 +33,9 @@ public class Source {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Source(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

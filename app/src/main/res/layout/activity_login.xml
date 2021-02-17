@@ -55,7 +55,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:startIconDrawable="@drawable/ic_account"
             android:hint="Username"
-            android:theme="@style/AppTheme"
             android:layout_marginTop="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -73,7 +72,6 @@
             android:layout_marginTop="30dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:startIconDrawable="@drawable/ic_lock"
-            android:theme="@style/AppTheme"
             android:hint="Password"
             app:passwordToggleEnabled="true">
 
@@ -87,7 +85,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_Login"
         android:layout_width="210dp"
         android:layout_height="50dp"
@@ -103,6 +101,7 @@
         android:textStyle="bold"
         android:textAllCaps="true"
         android:translationZ="55dp"/>
+
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
